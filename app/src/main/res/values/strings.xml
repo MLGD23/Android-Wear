@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Petcare</string>
+    <string name="app_title">Petcare - Lista de Mascotas</string>
+    <string name="app_detail">Petcare - Detalle de Mascotas</string>
+    <string name="sPerro">Golden</string>
+    <string name="sRaiting">0</string>
+    <string name="pMascota">mascotas</string>
+
+    <string name="sNombreHint">Nombre</string>
+    <string name="sCorreoHint">Correo electrónico</string>
+    <string name="sMensajeHint">Mensaje</string>
+    <string name="sBoton">Enviar Comentario</string>
+    <string name="sBotonDos">Abrir APP Correo</string>
+
+    <string name="mContacto">Contacto</string>
+    <string name="mAcercaDe">Acerca de...</string>
+
+    <!-- Acerca de -->
+    <string name="tTitulo">PETCARE</string>
+    <string name="tDesarrollo">Desarrollo</string>
+    <string name="tDesarrollador">Octavio Alfonso Cervantes Ruiz</string>
+    <string name="tContacto">Contacto</string>
+    <string name="tCorreo">ocervantesruiz@gmail.com</string>
+    <string name="tCurso">Coursera | agosto - septiembre 2016</string>
+
+    <!-- Perfil -->
+    <string name="sNombrePerro">Bucky</string>
+
+</resources>

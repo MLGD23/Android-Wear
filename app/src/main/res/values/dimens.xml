@@ -1,0 +1,39 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="elevacion_actionbar">4dp</dimen>
+    <dimen name="texto">20sp</dimen>
+    <dimen name="padd_recycler">9dp</dimen>
+    <dimen name="esquinas">6dp</dimen>
+    <dimen name="marginBot">10dp</dimen>
+    <dimen name="marginLR">20dp</dimen>
+    <dimen name="layImg">35dp</dimen>
+    <dimen name="layWid">0dp</dimen>
+    <dimen name="marLefT">10dp</dimen>
+    <dimen name="margin_top">18dp</dimen>
+    <dimen name="fuente_texto">15dp</dimen>
+    <dimen name="height_descripcion">120dp</dimen>
+
+    <!-- CardView Fotos Mascota -->
+    <dimen name="width_cvFoto">115dp</dimen>
+    <dimen name="height_cvFoto">165dp</dimen>
+    <dimen name="imgFotoSize">115dp</dimen>
+    <dimen name="height_llDFM">40dp</dimen>
+
+    <!-- Acerca de -->
+    <dimen name="imgLogoSize">100dp</dimen>
+    <dimen name="marginTextView">20dp</dimen>
+    <dimen name="marginLastTextView">45dp</dimen>
+    <dimen name="marginCircle">25dp</dimen>
+    <dimen name="borderCircle">2dp</dimen>
+    <dimen name="sizeTextView">19dp</dimen>
+    <dimen name="sizeAcerca">45dp</dimen>
+
+    <!-- Perfil -->
+    <dimen name="textNombrePerro">35sp</dimen>
+    <dimen name="radiusShadow">10dp</dimen>
+    <dimen name="widthBorder">6dp</dimen>
+    <dimen name="sizeFoto">145dp</dimen>
+</resources>

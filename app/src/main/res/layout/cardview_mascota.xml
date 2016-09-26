@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvMascota"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/marginBot"
+    android:layout_marginLeft="@dimen/marginLR"
+    android:layout_marginRight="@dimen/marginLR"
+    app:cardCornerRadius="@dimen/esquinas">
+
+    <LinearLayout
+        android:id="@+id/llDatosMascota"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgMascota"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/golden"
+            android:layout_gravity="center_horizontal"/>
+
+        <LinearLayout
+            android:id="@+id/llNombreMascota"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imgHuesoBlanco"
+                android:layout_width="@dimen/layImg"
+                android:layout_height="@dimen/layImg"
+                android:background="@drawable/hueso_blanco" />
+
+            <TextView
+                android:id="@+id/txtMascota"
+                android:layout_width="@dimen/layWid"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/sPerro"
+                android:textSize="@dimen/texto"
+                android:layout_marginLeft="@dimen/marLefT"
+                android:layout_gravity="center|left"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtRating"
+                android:layout_width="@dimen/layWid"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/sRaiting"
+                android:textSize="@dimen/texto"
+                android:layout_marginRight="@dimen/marLefT"
+                android:layout_gravity="center|left"
+                android:gravity="right"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/imgHuesoAmarillo"
+                android:layout_width="@dimen/layImg"
+                android:layout_height="@dimen/layImg"
+                android:src="@drawable/hueso_amarillo"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
