@@ -13,7 +13,7 @@
     <string name="sBotonDos">Abrir APP Correo</string>
 
     <string name="mContacto">Contacto</string>
-    <string name="mAcercaDe">Acerca de...</string>
+    <string name="mAcercaDe">Acerca de&#8230;</string>
 
     <!-- Acerca de -->
     <string name="tTitulo">PETCARE</string>
@@ -22,6 +22,7 @@
     <string name="tContacto">Contacto</string>
     <string name="tCorreo">ocervantesruiz@gmail.com</string>
     <string name="tCurso">Coursera | agosto - septiembre 2016</string>
+    <string name="tBiografia">Ingeniero en Sistemas Computacionales, dedicado al desarrollo de software de escritorio, aplicaciones web y aprendiendo el desarrollo de aplicaciones móviles.</string>
 
     <!-- Perfil -->
     <string name="sNombrePerro">Bucky</string>

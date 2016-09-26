@@ -25,11 +25,11 @@
     <!-- Acerca de -->
     <dimen name="imgLogoSize">100dp</dimen>
     <dimen name="marginTextView">20dp</dimen>
-    <dimen name="marginLastTextView">45dp</dimen>
+    <dimen name="marginLastTextView">20dp</dimen>
     <dimen name="marginCircle">25dp</dimen>
     <dimen name="borderCircle">2dp</dimen>
-    <dimen name="sizeTextView">19dp</dimen>
-    <dimen name="sizeAcerca">45dp</dimen>
+    <dimen name="sizeTextView">19sp</dimen>
+    <dimen name="sizeAcerca">45sp</dimen>
 
     <!-- Perfil -->
     <dimen name="textNombrePerro">35sp</dimen>

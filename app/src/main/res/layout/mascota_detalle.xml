@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mx.octaviocervantes.petcare.MascotasLista">
+    tools:context="mx.octaviocervantes.mypetcare.MascotasLista">
 
     <include android:id="@+id/actionBarMascota"
         layout="@layout/actionbar_mascota"
