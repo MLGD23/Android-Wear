@@ -19,12 +19,12 @@ import mx.octaviocervantes.mypetcare.fragments.PerfilFragment;
 
 public class MascotasLista extends AppCompatActivity {
 
-    private Toolbar tbMascota;
+    Toolbar tbMascota;
     private TabLayout tlMascota;
     private ViewPager vpMascota;
 
-    private MascotasFragment mf;
-    private PerfilFragment pf;
+    MascotasFragment mf;
+    PerfilFragment pf;
 
     private ArrayList<Fragment> fragments = new ArrayList<>();
 
@@ -77,7 +77,8 @@ public class MascotasLista extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.itemFav:
-                mf.verDetalleMascotas();
+                Intent intDetalle = new Intent(this, DetalleMascota.class);
+                startActivity(intDetalle);
             break;
 
             case R.id.mContacto:
@@ -93,6 +94,4 @@ public class MascotasLista extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
 }

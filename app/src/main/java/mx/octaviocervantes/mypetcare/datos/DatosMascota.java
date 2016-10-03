@@ -1,18 +1,18 @@
 package mx.octaviocervantes.mypetcare.datos;
 
-/**
- * Created by Tavo on 11/09/2016.
- */
 public class DatosMascota {
+    private int idMascota;
     private String nombreMascota;
-    private String ratingMascota;
+    private int ratingMascota;
     private int fotoMascota;
 
-    public DatosMascota(String nombreMascota, String ratingMascota, int fotoMascota) {
+    public DatosMascota(String nombreMascota, int ratingMascota, int fotoMascota) {
         this.nombreMascota = nombreMascota;
         this.ratingMascota = ratingMascota;
         this.fotoMascota = fotoMascota;
     }
+
+    public DatosMascota() {}
 
     public String getNombreMascota() {
         return nombreMascota;
@@ -22,11 +22,11 @@ public class DatosMascota {
         this.nombreMascota = nombreMascota;
     }
 
-    public String getRatingMascota() {
+    public int getRatingMascota() {
         return ratingMascota;
     }
 
-    public void setRatingMascota(String ratingMascota) {
+    public void setRatingMascota(int ratingMascota) {
         this.ratingMascota = ratingMascota;
     }
 
@@ -36,5 +36,13 @@ public class DatosMascota {
 
     public void setFotoMascota(int fotoMascota) {
         this.fotoMascota = fotoMascota;
+    }
+
+    public int getIdMascota() {
+        return idMascota;
+    }
+
+    public void setIdMascota(int idMascota) {
+        this.idMascota = idMascota;
     }
 }

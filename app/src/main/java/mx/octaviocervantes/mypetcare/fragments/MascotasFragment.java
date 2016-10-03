@@ -1,6 +1,5 @@
 package mx.octaviocervantes.mypetcare.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,18 +11,15 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-import mx.octaviocervantes.mypetcare.DetalleMascota;
 import mx.octaviocervantes.mypetcare.R;
 import mx.octaviocervantes.mypetcare.adapter.MascotaAdaptador;
 import mx.octaviocervantes.mypetcare.datos.DatosMascota;
+import mx.octaviocervantes.mypetcare.presentador.IMascotaFragmentPresenter;
+import mx.octaviocervantes.mypetcare.presentador.MascotaFragmentPresenter;
 
-/**
- * Created by Tavo on 22/09/2016.
- */
-public class MascotasFragment extends Fragment {
+public class MascotasFragment extends Fragment implements IMascotasFragment{
 
-    private ArrayList<DatosMascota> mascotas;
-    private ArrayList<Integer> posicionesMascotas;
+    IMascotaFragmentPresenter iMascotaFragmentPresenter;
     private RecyclerView listaMascotas;
 
     public MascotasFragment() {
@@ -35,45 +31,27 @@ public class MascotasFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_mascotas, container, false);
 
         listaMascotas = (RecyclerView) v.findViewById(R.id.rvMascotas);
-        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        listaMascotas.setLayoutManager(llm);
-
-        llenarDatosMascotas();
-        inicializarAdaptador();
+        iMascotaFragmentPresenter = new MascotaFragmentPresenter(this, getContext());
+        iMascotaFragmentPresenter.obtenerDatosMascotas();
+        iMascotaFragmentPresenter.mostrarDatosMascota();
 
         return v;
     }
 
-    //Inicia el adaptador
-    public void inicializarAdaptador(){
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas);
-        listaMascotas.setAdapter(adaptador);
+    @Override
+    public void generarLinearLayout() {
+        LinearLayoutManager llm = new LinearLayoutManager(getActivity());
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        listaMascotas.setLayoutManager(llm);
     }
 
-    //Datos de las mascotas
-    private void llenarDatosMascotas(){
-        mascotas = new ArrayList<DatosMascota>();
-
-        mascotas.add(new DatosMascota("Willy", "4", R.drawable.beagle));
-        mascotas.add(new DatosMascota("Toby", "4", R.drawable.alaska));
-        mascotas.add(new DatosMascota("Bruno", "2", R.drawable.collie));
-        mascotas.add(new DatosMascota("Simba", "3", R.drawable.pastor_aleman));
-        mascotas.add(new DatosMascota("Bucky", "5", R.drawable.golden));
+    @Override
+    public MascotaAdaptador crearAdaptador(ArrayList<DatosMascota> mascotas) {
+        return new MascotaAdaptador(mascotas, getActivity());
     }
 
-    //Mostrar Mascotas Favoritas
-    public void verDetalleMascotas(){
-        posicionesMascotas = new ArrayList<Integer>();
-
-        posicionesMascotas.add(Integer.parseInt(mascotas.get(0).getRatingMascota()));
-        posicionesMascotas.add(Integer.parseInt(mascotas.get(1).getRatingMascota()));
-        posicionesMascotas.add(Integer.parseInt(mascotas.get(2).getRatingMascota()));
-        posicionesMascotas.add(Integer.parseInt(mascotas.get(3).getRatingMascota()));
-        posicionesMascotas.add(Integer.parseInt(mascotas.get(4).getRatingMascota()));
-
-        Intent intent = new Intent(getActivity(), DetalleMascota.class);
-        intent.putExtra(getResources().getString(R.string.pMascota), posicionesMascotas);
-        startActivity(intent);
+    @Override
+    public void inicializarAdaptadorMascota(MascotaAdaptador mascotaAdaptador) {
+        listaMascotas.setAdapter(mascotaAdaptador);
     }
 }
