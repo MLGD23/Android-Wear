@@ -17,9 +17,9 @@
     <dimen name="height_descripcion">120dp</dimen>
 
     <!-- CardView Fotos Mascota -->
-    <dimen name="width_cvFoto">115dp</dimen>
-    <dimen name="height_cvFoto">165dp</dimen>
-    <dimen name="imgFotoSize">115dp</dimen>
+    <dimen name="width_cvFoto">135dp</dimen>
+    <dimen name="height_cvFoto">175dp</dimen>
+    <dimen name="imgFotoSize">135dp</dimen>
     <dimen name="height_llDFM">40dp</dimen>
 
     <!-- Acerca de -->
@@ -32,8 +32,8 @@
     <dimen name="sizeAcerca">45sp</dimen>
 
     <!-- Perfil -->
-    <dimen name="textNombrePerro">35sp</dimen>
-    <dimen name="radiusShadow">10dp</dimen>
-    <dimen name="widthBorder">6dp</dimen>
+    <dimen name="textNombrePerro">30sp</dimen>
+    <dimen name="radiusShadow">8dp</dimen>
+    <dimen name="widthBorder">4dp</dimen>
     <dimen name="sizeFoto">145dp</dimen>
 </resources>

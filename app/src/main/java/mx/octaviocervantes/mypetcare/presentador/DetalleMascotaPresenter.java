@@ -1,13 +1,16 @@
 package mx.octaviocervantes.mypetcare.presentador;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
 import mx.octaviocervantes.mypetcare.IDetalleMascota;
 import mx.octaviocervantes.mypetcare.datos.DatosMascota;
 import mx.octaviocervantes.mypetcare.db.ConstructorMascotas;
-import mx.octaviocervantes.mypetcare.fragments.IMascotasFragment;
 
 public class DetalleMascotaPresenter implements IDetalleMascotaPresenter {
 

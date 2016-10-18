@@ -1,12 +1,16 @@
 package mx.octaviocervantes.mypetcare;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,15 +18,16 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 
 import mx.octaviocervantes.mypetcare.adapter.PageAdapter;
+import mx.octaviocervantes.mypetcare.datos.Metodos;
 import mx.octaviocervantes.mypetcare.fragments.MascotasFragment;
 import mx.octaviocervantes.mypetcare.fragments.PerfilFragment;
+import mx.octaviocervantes.mypetcare.restAPI.ConstantesRestAPI;
 
 public class MascotasLista extends AppCompatActivity {
 
     Toolbar tbMascota;
     private TabLayout tlMascota;
     private ViewPager vpMascota;
-
     MascotasFragment mf;
     PerfilFragment pf;
 
@@ -32,19 +37,19 @@ public class MascotasLista extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_mascotas);
+        Metodos metodos = new Metodos(getApplicationContext());
 
         tbMascota = (Toolbar) findViewById(R.id.tbMascota);
         tlMascota = (TabLayout) findViewById(R.id.tlMascota);
         vpMascota = (ViewPager) findViewById(R.id.vpMascota);
 
-/*        Toolbar actionBarMascota = (Toolbar) findViewById(R.id.actionBarMascota);
-        setSupportActionBar(actionBarMascota);*/
-
-        setUpViewPager();
+        if(metodos.inicioApp())
+            metodos.guardarDatos(ConstantesRestAPI.ID_USUARIO, ConstantesRestAPI.USUARIO, true);
 
         if (tbMascota != null){
             setSupportActionBar(tbMascota);
         }
+        setUpViewPager();
     }
 
     private ArrayList<Fragment> agregarFragments(){
@@ -63,7 +68,6 @@ public class MascotasLista extends AppCompatActivity {
 
         tlMascota.getTabAt(0).setIcon(R.drawable.ic_home_pet);
         tlMascota.getTabAt(1).setIcon(R.drawable.ic_dog);
-
     }
 
     //Menú
@@ -90,6 +94,11 @@ public class MascotasLista extends AppCompatActivity {
                 Intent intAcerca = new Intent(this, AcercaDesarrollador.class);
                 startActivity(intAcerca);
             break;
+
+            case R.id.mConfigurarCuenta:
+                Intent intConfigura = new Intent(this, LoginUsuario.class);
+                startActivity(intConfigura);
+                break;
         }
 
         return super.onOptionsItemSelected(item);

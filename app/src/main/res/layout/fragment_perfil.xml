@@ -30,6 +30,45 @@
         />
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tvNoSeguidores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tvSeguidores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seguidores"
+            android:layout_marginLeft="5dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tvSeguidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Siguiendo a "
+            android:layout_marginLeft="35dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tvNoSeguidos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginLeft="5dp"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_marginTop="@dimen/marginLR"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,7 +79,7 @@
             android:id="@+id/rvFotosMascota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            gravity="center_horizontal"
             android:padding="@dimen/padd_recycler">
 
         </android.support.v7.widget.RecyclerView>

@@ -14,6 +14,7 @@
 
     <string name="mContacto">Contacto</string>
     <string name="mAcercaDe">Acerca de&#8230;</string>
+    <string name="mConfigurarCuenta">Configurar Cuenta</string>
 
     <!-- Acerca de -->
     <string name="tTitulo">PETCARE</string>
@@ -23,6 +24,10 @@
     <string name="tCorreo">ocervantesruiz@gmail.com</string>
     <string name="tCurso">Coursera | agosto - septiembre 2016</string>
     <string name="tBiografia">Ingeniero en Sistemas Computacionales, dedicado al desarrollo de software de escritorio, aplicaciones web y aprendiendo el desarrollo de aplicaciones móviles.</string>
+
+    <!-- Configurar Cuenta -->
+    <string name="btnLogin">Guardar Cuenta</string>
+    <string name="sUsuario">Usuario</string>
 
     <!-- Perfil -->
     <string name="sNombrePerro">Bucky</string>

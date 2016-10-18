@@ -3,8 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cvFotoMascota"
-    android:layout_width="@dimen/width_cvFoto"
+    android:layout_width="match_parent"
     android:layout_height="@dimen/height_cvFoto"
+    android:layout_marginTop="10dp"
+    android:layout_marginLeft="5dp"
     app:cardCornerRadius="@dimen/esquinas">
 
     <ImageView
@@ -12,6 +14,7 @@
         android:layout_width="@dimen/imgFotoSize"
         android:layout_height="@dimen/imgFotoSize"
         android:src="@drawable/golden"
+        android:layout_gravity="center_horizontal"
         />
 
         <LinearLayout
@@ -29,13 +32,14 @@
                 android:text="@string/sRaiting"
                 android:textSize="@dimen/texto"
                 android:layout_gravity="center|left"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:layout_marginRight="10dp"/>
 
             <ImageView
                 android:id="@+id/imgHuesoAmarilloFoto"
                 android:layout_width="@dimen/layImg"
                 android:layout_height="@dimen/layImg"
-                android:src="@drawable/hueso_amarillo"
+                android:src="@drawable/cat_profile_48"
                 />
         </LinearLayout>
 

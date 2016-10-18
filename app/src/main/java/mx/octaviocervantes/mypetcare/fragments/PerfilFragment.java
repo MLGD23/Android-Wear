@@ -1,6 +1,5 @@
 package mx.octaviocervantes.mypetcare.fragments;
 
-
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,24 +8,34 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import mx.octaviocervantes.mypetcare.R;
 import mx.octaviocervantes.mypetcare.adapter.FotoMascotaAdaptador;
+import mx.octaviocervantes.mypetcare.adapter.MascotaAdaptador;
+import mx.octaviocervantes.mypetcare.datos.DatosMascota;
 import mx.octaviocervantes.mypetcare.datos.FotosDatosMascota;
+import mx.octaviocervantes.mypetcare.datos.MascotaIdInstagram;
+import mx.octaviocervantes.mypetcare.datos.MascotaInstagram;
+import mx.octaviocervantes.mypetcare.datos.UsuarioIdInstagram;
+import mx.octaviocervantes.mypetcare.datos.UsuarioInstagram;
+import mx.octaviocervantes.mypetcare.presentador.PerfilMascotaPresenter;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class PerfilFragment extends Fragment {
+public class PerfilFragment extends Fragment implements IPerfilFragment {
 
-    private ArrayList<FotosDatosMascota> fotosMascotas;
     private RecyclerView rvFotosMascotas;
+    private PerfilMascotaPresenter perfilMascotaPresenter;
+    private CircularImageView imgCMascota;
+    private TextView txtNombreMascota;
+    private TextView tvNoSeguidores;
+    private TextView tvNoSeguidos;
 
-    public PerfilFragment() {
-        // Required empty public constructor
-    }
+    public PerfilFragment() {}
 
     @Nullable
     @Override
@@ -35,38 +44,39 @@ public class PerfilFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_perfil, container, false);
 
         rvFotosMascotas = (RecyclerView) v.findViewById(R.id.rvFotosMascota);
-        GridLayoutManager glm = new GridLayoutManager(getActivity(), 3);
-        rvFotosMascotas.setLayoutManager(glm);
-
-        llenarFotosMascota();
-        inicializarAdaptador();
+        perfilMascotaPresenter = new PerfilMascotaPresenter(getContext(), this);
+        imgCMascota = (CircularImageView) v.findViewById(R.id.imgCMascota);
+        txtNombreMascota = (TextView) v.findViewById(R.id.txtNombreMascota);
+        tvNoSeguidores = (TextView) v.findViewById(R.id.tvNoSeguidores);
+        tvNoSeguidos = (TextView) v.findViewById(R.id.tvNoSeguidos);
 
         return v;
     }
 
-    //Inicia el adaptador
-    public void inicializarAdaptador(){
-        FotoMascotaAdaptador adaptador = new FotoMascotaAdaptador(fotosMascotas);
-        rvFotosMascotas.setAdapter(adaptador);
+    @Override
+    public void generarGridLayout() {
+        GridLayoutManager glm = new GridLayoutManager(getContext(), 2);
+        rvFotosMascotas.setLayoutManager(glm);
     }
 
-    private void llenarFotosMascota(){
-        fotosMascotas = new ArrayList<FotosDatosMascota>();
+    @Override
+    public FotoMascotaAdaptador crearAdaptador(ArrayList<MascotaIdInstagram> fotosMascotas) {
+        return new FotoMascotaAdaptador(fotosMascotas, getContext());
+    }
 
-        fotosMascotas.add(new FotosDatosMascota(R.drawable.golden_1, "22"));
-        fotosMascotas.add(new FotosDatosMascota(R.drawable.golden_2, "4"));
-        fotosMascotas.add(new FotosDatosMascota(R.drawable.golden_3, "17"));
+    @Override
+    public void inicializarAdaptadorMascota(FotoMascotaAdaptador mascotaAdaptador) {
+        rvFotosMascotas.setAdapter(mascotaAdaptador);
+    }
 
-        fotosMascotas.add(new FotosDatosMascota(R.drawable.golden_4, "6"));
-        fotosMascotas.add(new FotosDatosMascota(R.drawable.golden_5, "0"));
-        fotosMascotas.add(new FotosDatosMascota(R.drawable.golden_6, "5"));
-
-        fotosMascotas.add(new FotosDatosMascota(R.drawable.golden_7, "9"));
-        fotosMascotas.add(new FotosDatosMascota(R.drawable.golden_8, "14"));
-        fotosMascotas.add(new FotosDatosMascota(R.drawable.golden_9, "11"));
-
-        fotosMascotas.add(new FotosDatosMascota(R.drawable.golden_10, "10"));
-        fotosMascotas.add(new FotosDatosMascota(R.drawable.golden_11, "8"));
-        fotosMascotas.add(new FotosDatosMascota(R.drawable.golden_12, "3"));
+    @Override
+    public void mostrarDatosUsuario(ArrayList<UsuarioIdInstagram> usuarioInstagram) {
+        Picasso.with(getContext())
+                .load(usuarioInstagram.get(0).getsFotoUsuario())
+                .placeholder(R.drawable.golden)
+                .into(imgCMascota);
+        txtNombreMascota.setText(usuarioInstagram.get(0).getsNombreUsuario());
+        tvNoSeguidores.setText(String.valueOf(usuarioInstagram.get(0).getiSeguidores()));
+        tvNoSeguidos.setText(String.valueOf(usuarioInstagram.get(0).getiSeguidos()));
     }
 }
