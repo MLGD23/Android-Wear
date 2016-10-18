@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -77,18 +78,30 @@ public class LoginUsuario extends AppCompatActivity {
             public void onResponse(Call<UsuarioSearchResponse> call, Response<UsuarioSearchResponse> response) {
                 UsuarioSearchResponse usuarioResponse = response.body();
                 usuarios = usuarioResponse.getUsuario();
-                Metodos m = new Metodos(getApplicationContext());
 
-                m.guardarDatos(usuarios.get(0).getIdUser(), usuarios.get(0).getsUser(), false);
-                Intent intent = new Intent(LoginUsuario.this, MascotasLista.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                finish();
+                if (usuarios.size() > 0) {
+                    Metodos m = new Metodos(getApplicationContext());
+
+                    m.guardarDatos(usuarios.get(0).getIdUser(), usuarios.get(0).getsUser(), false);
+                    Intent intent = new Intent(LoginUsuario.this, MascotasLista.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                }else{
+                    Metodos m = new Metodos(getApplicationContext());
+
+                    m.guardarDatos(ConstantesRestAPI.ID_USUARIO, ConstantesRestAPI.USUARIO, false);
+                    Toast.makeText(getApplicationContext(), "No se encontró al usuario seleccionado, se mostrará el usuario registrado en la API", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(LoginUsuario.this, MascotasLista.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    finish();
+                }
             }
 
             @Override
             public void onFailure(Call<UsuarioSearchResponse> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Hubo un problema con la conexión para el usuario buscado, intenta nuevamente.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Hubo un problema con la conexión al buscar a un usuario, intenta nuevamente.", Toast.LENGTH_LONG).show();
                 Log.e("Falló la conexión.", t.toString());
             }
         });

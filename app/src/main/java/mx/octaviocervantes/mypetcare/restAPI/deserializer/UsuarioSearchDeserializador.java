@@ -29,16 +29,18 @@ public class UsuarioSearchDeserializador implements JsonDeserializer<UsuarioSear
     private ArrayList<UsuarioSearchInstagram> deserializadorUsuarioJson(JsonArray usuarioResponseData){
         ArrayList<UsuarioSearchInstagram> usuarioInstagram = new ArrayList<>();
 
-        JsonObject jsonObject = usuarioResponseData.get(0).getAsJsonObject();
+        if(usuarioResponseData.size() > 0){
+            JsonObject jsonObject = usuarioResponseData.get(0).getAsJsonObject();
 
-        String idUser = jsonObject.get(JsonKeys.USER_ID).getAsString();
-        String sUser = jsonObject.get(JsonKeys.USERNAME).getAsString();
+            String idUser = jsonObject.get(JsonKeys.USER_ID).getAsString();
+            String sUser = jsonObject.get(JsonKeys.USERNAME).getAsString();
 
-        UsuarioSearchInstagram usuarioInstagramActual = new UsuarioSearchInstagram();
-        usuarioInstagramActual.setIdUser(idUser);
-        usuarioInstagramActual.setsUser(sUser);
+            UsuarioSearchInstagram usuarioInstagramActual = new UsuarioSearchInstagram();
+            usuarioInstagramActual.setIdUser(idUser);
+            usuarioInstagramActual.setsUser(sUser);
 
-        usuarioInstagram.add(usuarioInstagramActual);
+            usuarioInstagram.add(usuarioInstagramActual);
+        }
 
         return usuarioInstagram;
     }
