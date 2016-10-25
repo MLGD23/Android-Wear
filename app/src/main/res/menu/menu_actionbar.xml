@@ -27,4 +27,10 @@
         android:orderInCategory="102"
         >
     </item>
+    <item
+        android:id="@+id/mRecibirNotificaciones"
+        android:title="@string/mRecibirNotificaciones"
+        android:orderInCategory="103"
+        >
+    </item>
 </menu>

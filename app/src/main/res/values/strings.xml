@@ -31,5 +31,6 @@
 
     <!-- Perfil -->
     <string name="sNombrePerro">Bucky</string>
+    <string name="mRecibirNotificaciones">Recibir notificaciones</string>
 
 </resources>

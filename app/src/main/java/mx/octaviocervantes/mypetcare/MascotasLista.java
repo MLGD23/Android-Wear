@@ -15,6 +15,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import java.util.ArrayList;
 
 import mx.octaviocervantes.mypetcare.adapter.PageAdapter;
@@ -99,8 +101,17 @@ public class MascotasLista extends AppCompatActivity {
                 Intent intConfigura = new Intent(this, LoginUsuario.class);
                 startActivity(intConfigura);
                 break;
+
+            case R.id.mRecibirNotificaciones:
+                recibirNotificaciones();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void recibirNotificaciones(){
+        String token = FirebaseInstanceId.getInstance().getToken();
+        Log.d("TOKEN", token);
     }
 }
