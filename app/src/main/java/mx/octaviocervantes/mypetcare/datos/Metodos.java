@@ -18,6 +18,11 @@ public class Metodos {
         return idUser;
     }
 
+    public String mostrarDatosUsuario(){
+        String sUser = shrd.getString("usuario","");
+        return sUser;
+    }
+
     public void guardarDatos(String idUsuario, String sUsuario, boolean inicioApp){
         SharedPreferences.Editor edit = shrd.edit();
 

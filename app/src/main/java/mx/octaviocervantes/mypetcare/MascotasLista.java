@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 
@@ -24,6 +25,12 @@ import mx.octaviocervantes.mypetcare.datos.Metodos;
 import mx.octaviocervantes.mypetcare.fragments.MascotasFragment;
 import mx.octaviocervantes.mypetcare.fragments.PerfilFragment;
 import mx.octaviocervantes.mypetcare.restAPI.ConstantesRestAPI;
+import mx.octaviocervantes.mypetcare.restAPI.EndpointsAPIFirebase;
+import mx.octaviocervantes.mypetcare.restAPI.adapter.RestAPIFirebaseAdapter;
+import mx.octaviocervantes.mypetcare.restAPI.model.UsuarioFirebaseResponse;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MascotasLista extends AppCompatActivity {
 
@@ -32,6 +39,7 @@ public class MascotasLista extends AppCompatActivity {
     private ViewPager vpMascota;
     MascotasFragment mf;
     PerfilFragment pf;
+    Metodos metodos;
 
     private ArrayList<Fragment> fragments = new ArrayList<>();
 
@@ -39,7 +47,7 @@ public class MascotasLista extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lista_mascotas);
-        Metodos metodos = new Metodos(getApplicationContext());
+        metodos = new Metodos(getApplicationContext());
 
         tbMascota = (Toolbar) findViewById(R.id.tbMascota);
         tlMascota = (TabLayout) findViewById(R.id.tlMascota);
@@ -112,6 +120,22 @@ public class MascotasLista extends AppCompatActivity {
 
     private void recibirNotificaciones(){
         String token = FirebaseInstanceId.getInstance().getToken();
-        Log.d("TOKEN", token);
+
+        RestAPIFirebaseAdapter restAPIFirebaseAdapter = new RestAPIFirebaseAdapter();
+        EndpointsAPIFirebase endpointsAPIFirebase = restAPIFirebaseAdapter.establecerConexionRestAPI();
+        Call<UsuarioFirebaseResponse> usuarioFirebaseResponseCall = endpointsAPIFirebase.registrarTokenId(metodos.mostrarDatos(), metodos.mostrarDatosUsuario(), token);
+
+        usuarioFirebaseResponseCall.enqueue(new Callback<UsuarioFirebaseResponse>() {
+            @Override
+            public void onResponse(Call<UsuarioFirebaseResponse> call, Response<UsuarioFirebaseResponse> response) {
+                UsuarioFirebaseResponse usuarioFirebaseResponse = response.body();
+                Toast.makeText(getApplicationContext(), "Información enviada a la base de datos de firebase.", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFailure(Call<UsuarioFirebaseResponse> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "No se pudo enviar información a la base de datos de firebase.", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
