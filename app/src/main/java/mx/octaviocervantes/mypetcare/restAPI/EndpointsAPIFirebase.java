@@ -10,7 +10,7 @@ public interface EndpointsAPIFirebase {
 
     @FormUrlEncoded
     @POST(ConstantesRestAPIFirebase.TOKEN)
-    Call<UsuarioFirebaseResponse> registrarTokenId(@Field("idusuario") String idUsuario,
-                                                   @Field("susuario") String sUsuario,
-                                                   @Field("iddispositivo") String idDispositivo);
+    Call<UsuarioFirebaseResponse> registrarTokenId(@Field("idusuario") String idusuario,
+                                                   @Field("susuario") String susuario,
+                                                   @Field("iddispositivo") String iddispositivo);
 }

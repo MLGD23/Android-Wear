@@ -111,25 +111,33 @@ public class MascotasLista extends AppCompatActivity {
                 break;
 
             case R.id.mRecibirNotificaciones:
-                recibirNotificaciones();
+                String token = FirebaseInstanceId.getInstance().getToken();
+                String idUsuario = metodos.mostrarDatos();
+                String sUsuario = metodos.mostrarDatosUsuario();
+                String idDispositivo = token;
+
+                recibirNotificaciones(idUsuario, sUsuario, idDispositivo);
                 break;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void recibirNotificaciones(){
-        String token = FirebaseInstanceId.getInstance().getToken();
+    private void recibirNotificaciones(String idUsuario, String sUsuario, String idDispositivo){
 
         RestAPIFirebaseAdapter restAPIFirebaseAdapter = new RestAPIFirebaseAdapter();
         EndpointsAPIFirebase endpointsAPIFirebase = restAPIFirebaseAdapter.establecerConexionRestAPI();
-        Call<UsuarioFirebaseResponse> usuarioFirebaseResponseCall = endpointsAPIFirebase.registrarTokenId(metodos.mostrarDatos(), metodos.mostrarDatosUsuario(), token);
+        Call<UsuarioFirebaseResponse> usuarioFirebaseResponseCall = endpointsAPIFirebase.registrarTokenId(idUsuario, sUsuario, idDispositivo);
 
         usuarioFirebaseResponseCall.enqueue(new Callback<UsuarioFirebaseResponse>() {
             @Override
             public void onResponse(Call<UsuarioFirebaseResponse> call, Response<UsuarioFirebaseResponse> response) {
                 UsuarioFirebaseResponse usuarioFirebaseResponse = response.body();
                 Toast.makeText(getApplicationContext(), "Información enviada a la base de datos de firebase.", Toast.LENGTH_LONG).show();
+                Log.d("ID_GCM", usuarioFirebaseResponse.getId());
+                Log.d("ID_USER", usuarioFirebaseResponse.getIdUsuario());
+                Log.d("USER", usuarioFirebaseResponse.getsUsuario());
+                Log.d("ID_DEVICE", usuarioFirebaseResponse.getIdDispositivo());
             }
 
             @Override

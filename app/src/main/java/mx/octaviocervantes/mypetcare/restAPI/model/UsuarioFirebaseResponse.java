@@ -2,19 +2,18 @@ package mx.octaviocervantes.mypetcare.restAPI.model;
 
 public class UsuarioFirebaseResponse {
     private String id;
-    private String idUsuario;
-    private String idDispositivo;
-    private String sUsuario;
+    private String idusuario;
+    private String iddispositivo;
+    private String susuario;
 
     public UsuarioFirebaseResponse() {
     }
 
-    public UsuarioFirebaseResponse(String id, String idUsuario, String sUsuario, String idDispositivo) {
-
+    public UsuarioFirebaseResponse(String id, String idusuario, String susuario, String iddispositivo) {
         this.id = id;
-        this.idDispositivo = idDispositivo;
-        this.idUsuario = idUsuario;
-        this.sUsuario = sUsuario;
+        this.idusuario = idusuario;
+        this.susuario = susuario;
+        this.iddispositivo = iddispositivo;
     }
 
     public String getId() {
@@ -26,26 +25,26 @@ public class UsuarioFirebaseResponse {
     }
 
     public String getIdDispositivo() {
-        return idDispositivo;
+        return iddispositivo;
     }
 
-    public void setIdDispositivo(String idDispositivo) {
-        this.idDispositivo = idDispositivo;
+    public void setIdDispositivo(String iddispositivo) {
+        this.iddispositivo = iddispositivo;
     }
 
     public String getIdUsuario() {
-        return idUsuario;
+        return idusuario;
     }
 
-    public void setIdUsuario(String idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdUsuario(String idusuario) {
+        this.idusuario = idusuario;
     }
 
     public String getsUsuario() {
-        return sUsuario;
+        return susuario;
     }
 
-    public void setsUsuario(String sUsuario) {
-        this.sUsuario = sUsuario;
+    public void setsUsuario(String susuario) {
+        this.susuario = susuario;
     }
 }
