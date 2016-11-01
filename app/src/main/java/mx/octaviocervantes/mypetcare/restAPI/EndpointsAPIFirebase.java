@@ -1,6 +1,7 @@
 package mx.octaviocervantes.mypetcare.restAPI;
 
 import mx.octaviocervantes.mypetcare.restAPI.model.UsuarioFirebaseResponse;
+import mx.octaviocervantes.mypetcare.restAPI.model.UsuarioLikeResponse;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -13,4 +14,10 @@ public interface EndpointsAPIFirebase {
     Call<UsuarioFirebaseResponse> registrarTokenId(@Field("idusuario") String idusuario,
                                                    @Field("susuario") String susuario,
                                                    @Field("iddispositivo") String iddispositivo);
+
+    @FormUrlEncoded
+    @POST(ConstantesRestAPIFirebase.TOKEN_FOTO_LIKE)
+    Call<UsuarioLikeResponse> registrarLikeUsuario(@Field("idusuarior") String idusuarior,
+                                                   @Field("idusuarioe") String idusuarioe,
+                                                   @Field("idfoto") String idfoto);
 }

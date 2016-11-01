@@ -22,9 +22,11 @@ public final class ConstantesRestAPI{
     public static final String USER_SEARCH_ENDPOINT = "users/search";
 	public static final String USER_ID_RECENT_MEDIA_ENDPOINT = "users/{user-id}/media/recent/";
 	public static final String USER_ID_ENDPOINT = "users/{user-id}/";
+	public static final String USER_PHOTO_LIKE = "media/{media-id}/likes";
 
 	public static final String URL_RECENT_MEDIA = RECENT_MEDIA_ENDPOINT + KEY_ACCESS_TOKEN;
     public static final String URL_USER = USER_ENDPOINT + KEY_ACCESS_TOKEN;
     public static final String URL_USER_ID_RECENT_MEDIA = USER_ID_RECENT_MEDIA_ENDPOINT + KEY_ACCESS_TOKEN;
     public static final String URL_USER_ID = USER_ID_ENDPOINT + KEY_ACCESS_TOKEN;
+	public static final String URL_USER_PHOTO_LIKE = USER_PHOTO_LIKE + KEY_ACCESS_TOKEN;
 }

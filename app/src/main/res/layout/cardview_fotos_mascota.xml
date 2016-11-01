@@ -25,6 +25,13 @@
             android:layout_gravity="bottom|center"
             android:gravity="center">
 
+            <ImageButton
+                android:id="@+id/imgHuesoBlanco"
+                android:layout_width="@dimen/layImg"
+                android:layout_height="@dimen/layImg"
+                android:background="@drawable/hueso_blanco"
+                android:onClick="darLike"/>
+
             <TextView
                 android:id="@+id/txtRatingFoto"
                 android:layout_width="wrap_content"

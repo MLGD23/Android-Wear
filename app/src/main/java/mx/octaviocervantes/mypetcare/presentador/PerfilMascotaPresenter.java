@@ -58,24 +58,6 @@ public class PerfilMascotaPresenter implements IPerfilMascotaPresenter {
 
     @Override
     public void obtenerMediosRecientesUsuario() {
-        /*Gson gsonMediaRecent = restApiAdapter.construyeGsonDeserializadorMediaRecent();
-        endpointsAPI = restApiAdapter.establecerConexionRestAPIInstagram(gsonMediaRecent);
-        Call<MascotaResponse> mascotaResponseCall = endpointsAPI.getRecentMedia();
-
-        mascotaResponseCall.enqueue(new Callback<MascotaResponse>(){
-            @Override
-            public void onResponse(Call<MascotaResponse> call, Response<MascotaResponse> response){
-                MascotaResponse mascotaResponse = response.body();
-                mascotas = mascotaResponse.getMascotas();
-                mostrarDatosMascota();
-            }
-
-            @Override
-            public void onFailure(Call<MascotaResponse> call, Throwable t){
-                Toast.makeText(context, "Hubo un problema con la conexión intenta nuevamente.", Toast.LENGTH_LONG).show();
-                Log.e("Falló la conexión.", t.toString());
-            }
-        });*/
         Gson gsonUser = restApiAdapter.construyeGsonDeserializadorMediaRecentUserId();
         endpointsAPI = restApiAdapter.establecerConexionRestAPIInstagram(gsonUser);
         Call<MascotaIdResponse> mascotaIdResponseCall = endpointsAPI.getRecentMediaUserId(idUser);

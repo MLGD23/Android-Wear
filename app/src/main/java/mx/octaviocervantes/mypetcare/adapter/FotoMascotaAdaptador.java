@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 import mx.octaviocervantes.mypetcare.R;
 import mx.octaviocervantes.mypetcare.datos.MascotaIdInstagram;
 import mx.octaviocervantes.mypetcare.datos.MascotaInstagram;
+import mx.octaviocervantes.mypetcare.datos.Metodos;
+import mx.octaviocervantes.mypetcare.db.ConstructorMascotas;
 import mx.octaviocervantes.mypetcare.fragments.PerfilFragment;
 
 /**
@@ -41,6 +44,7 @@ public class FotoMascotaAdaptador extends RecyclerView.Adapter<FotoMascotaAdapta
     @Override
     public void onBindViewHolder(FotoMascotaViewHolder holder, int position) {
         final MascotaIdInstagram fotoMascota = fotoMascotas.get(position);
+        final String idFoto = fotoMascota.getIdFoto();
 
         Picasso.with(context)
                 .load(fotoMascota.getUrlFoto())
@@ -48,6 +52,13 @@ public class FotoMascotaAdaptador extends RecyclerView.Adapter<FotoMascotaAdapta
                 .into(holder.imgFotoMascota);
 
         holder.txtRatingFoto.setText(String.valueOf(fotoMascota.getMeGusta()));
+        holder.imgHuesoBlanco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Metodos metodos = new Metodos(context);
+                metodos.registroLike(idFoto);
+            }
+        });
     }
 
     @Override
@@ -59,11 +70,13 @@ public class FotoMascotaAdaptador extends RecyclerView.Adapter<FotoMascotaAdapta
 
         private ImageView imgFotoMascota;
         private TextView txtRatingFoto;
+        private ImageButton imgHuesoBlanco;
 
         public FotoMascotaViewHolder(View itemView) {
             super(itemView);
             imgFotoMascota = (ImageView) itemView.findViewById(R.id.imgFotoMascota);
             txtRatingFoto = (TextView) itemView.findViewById(R.id.txtRatingFoto);
+            imgHuesoBlanco = (ImageButton) itemView.findViewById(R.id.imgHuesoBlanco);
         }
     }
 }

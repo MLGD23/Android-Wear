@@ -14,6 +14,7 @@ public class ConstructorMascotas {
     private Context context;
     private ArrayList<DatosMascota> mascotas;
 
+
     public ConstructorMascotas(Context context) {
         this.context = context;
         baseDatosMascotas = new BaseDatosMascotas(context);
@@ -88,4 +89,5 @@ public class ConstructorMascotas {
     public int obtenerLikesMascota(DatosMascota mascota){
         return baseDatosMascotas.obtenerLikesMascota(mascota);
     }
+
 }

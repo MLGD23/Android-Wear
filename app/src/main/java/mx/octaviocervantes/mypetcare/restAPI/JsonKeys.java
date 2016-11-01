@@ -13,6 +13,7 @@ public final class JsonKeys{
 	public static final String MEDIA_RESPONSE_ARRAY_IMAGES = "images";
 	public static final String MEDIA_RECENT_STD_RES = "standard_resolution";
 	public static final String MEDIA_RECENT_STD_RES_URL = "url";
+	public static final String MEDIA_RECENT_ID = "id";
 
 	public static final String MEDIA_RESPONSE_ARRAY_LIKES = "likes";
 	public static final String MEDIA_RECENT_LIKES_COUNT = "count";
@@ -21,4 +22,7 @@ public final class JsonKeys{
     public static final String USER_MEDIA = "media";
     public static final String USER_FOLLOWERS = "followed_by";
     public static final String USER_FOLLOWS = "follows";
+
+	public static final String LIKE_META = "meta";
+	public static final String LIKE_CODE = "code";
 }
