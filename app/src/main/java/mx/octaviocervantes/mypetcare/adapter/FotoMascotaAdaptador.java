@@ -50,7 +50,7 @@ public class FotoMascotaAdaptador extends RecyclerView.Adapter<FotoMascotaAdapta
             @Override
             public void onClick(View v) {
                 MetodosRestAPI metodos = new MetodosRestAPI(context);
-                metodos.darLikeFoto(idFoto);
+                //metodos.darLikeFoto(idFoto);
                 metodos.registroLike(idFoto);
             }
         });
