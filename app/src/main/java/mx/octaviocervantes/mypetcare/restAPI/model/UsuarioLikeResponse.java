@@ -8,15 +8,13 @@ public class UsuarioLikeResponse {
     private String idusuario;
     private String iddispositivo;
     private String idfoto;
-    private boolean notificacion;
     private boolean notify;
 
-    public UsuarioLikeResponse(String id, String iddispositivo, String idfoto, String idusuario, boolean notificacion,boolean notify) {
+    public UsuarioLikeResponse(String id, String iddispositivo, String idfoto, String idusuario, boolean notify) {
         this.id = id;
         this.iddispositivo = iddispositivo;
         this.idfoto = idfoto;
         this.idusuario = idusuario;
-        this.notificacion = notificacion;
         this.notify = notify;
     }
 
@@ -53,14 +51,6 @@ public class UsuarioLikeResponse {
 
     public void setIdusuario(String idusuario) {
         this.idusuario = idusuario;
-    }
-
-    public boolean isNotificacion() {
-        return notificacion;
-    }
-
-    public void setNotificacion(boolean notificacion) {
-        this.notificacion = notificacion;
     }
 
     public boolean isNotify() {

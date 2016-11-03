@@ -7,11 +7,14 @@ import java.util.ArrayList;
 
 import mx.octaviocervantes.mypetcare.R;
 import mx.octaviocervantes.mypetcare.datos.DatosMascota;
+import mx.octaviocervantes.mypetcare.restAPI.EndpointsAPI;
+import mx.octaviocervantes.mypetcare.restAPI.adapter.RestAPIAdapter;
 
 public class ConstructorMascotas {
 
     BaseDatosMascotas baseDatosMascotas;
     private Context context;
+    private RestAPIAdapter restApiAdapter;
     private ArrayList<DatosMascota> mascotas;
 
 

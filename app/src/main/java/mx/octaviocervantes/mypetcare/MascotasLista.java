@@ -1,11 +1,8 @@
 package mx.octaviocervantes.mypetcare;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +37,7 @@ public class MascotasLista extends AppCompatActivity {
     MascotasFragment mf;
     PerfilFragment pf;
     Metodos metodos;
+    int tab = 1;
 
     private ArrayList<Fragment> fragments = new ArrayList<>();
 
@@ -59,7 +57,13 @@ public class MascotasLista extends AppCompatActivity {
         if (tbMascota != null){
             setSupportActionBar(tbMascota);
         }
-        setUpViewPager();
+        final Bundle intent = getIntent().getExtras();
+
+        if(intent != null) {
+            tab = intent.getInt("tab", 1);
+        }
+
+        setUpViewPager(tab);
     }
 
     private ArrayList<Fragment> agregarFragments(){
@@ -72,12 +76,14 @@ public class MascotasLista extends AppCompatActivity {
         return fragments;
     }
 
-    private void setUpViewPager(){
+    private void setUpViewPager(int tab){
         vpMascota.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragments()));
         tlMascota.setupWithViewPager(vpMascota);
 
         tlMascota.getTabAt(0).setIcon(R.drawable.ic_home_pet);
         tlMascota.getTabAt(1).setIcon(R.drawable.ic_dog);
+
+        tlMascota.getTabAt(tab - 1).select();
     }
 
     //Menú

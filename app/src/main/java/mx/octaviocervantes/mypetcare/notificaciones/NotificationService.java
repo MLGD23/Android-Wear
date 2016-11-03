@@ -43,12 +43,13 @@ public class NotificationService extends FirebaseMessagingService {
 
     private void lanzarNotificacion(RemoteMessage remoteMessage) {
         Intent i = new Intent(this, MascotasLista.class);
+        i.putExtra("tab", 2);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_ONE_SHOT);
 
         Uri sonido = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         android.support.v4.app.NotificationCompat.Builder notificacion = new android.support.v4.app.NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.notificacion)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("Notificación recibida")
                 .setContentText(remoteMessage.getNotification().getBody())
                 .setSound(sonido)

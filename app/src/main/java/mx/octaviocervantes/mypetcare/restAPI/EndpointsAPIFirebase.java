@@ -17,7 +17,7 @@ public interface EndpointsAPIFirebase {
 
     @FormUrlEncoded
     @POST(ConstantesRestAPIFirebase.TOKEN_FOTO_LIKE)
-    Call<UsuarioLikeResponse> registrarLikeUsuario(@Field("idusuarior") String idusuarior,
-                                                   @Field("idusuarioe") String idusuarioe,
-                                                   @Field("idfoto") String idfoto);
+    Call<UsuarioLikeResponse> registrarLikeUsuario(@Field("idusuario") String idusuario,
+                                                   @Field("idfoto") String idfoto,
+                                                   @Field("iddispositivoe") String iddispositivoe);
 }

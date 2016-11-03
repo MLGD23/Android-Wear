@@ -18,6 +18,7 @@ import mx.octaviocervantes.mypetcare.R;
 import mx.octaviocervantes.mypetcare.datos.MascotaIdInstagram;
 import mx.octaviocervantes.mypetcare.datos.MascotaInstagram;
 import mx.octaviocervantes.mypetcare.datos.Metodos;
+import mx.octaviocervantes.mypetcare.datos.MetodosRestAPI;
 import mx.octaviocervantes.mypetcare.db.ConstructorMascotas;
 import mx.octaviocervantes.mypetcare.fragments.PerfilFragment;
 
@@ -25,6 +26,7 @@ import mx.octaviocervantes.mypetcare.fragments.PerfilFragment;
  * Created by Tavo on 24/09/2016.
  */
 public class FotoMascotaAdaptador extends RecyclerView.Adapter<FotoMascotaAdaptador.FotoMascotaViewHolder>{
+
 
     ArrayList<MascotaIdInstagram> fotoMascotas;
     Context context;
@@ -55,7 +57,8 @@ public class FotoMascotaAdaptador extends RecyclerView.Adapter<FotoMascotaAdapta
         holder.imgHuesoBlanco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Metodos metodos = new Metodos(context);
+                MetodosRestAPI metodos = new MetodosRestAPI(context);
+                metodos.darLikeFoto(idFoto);
                 metodos.registroLike(idFoto);
             }
         });
