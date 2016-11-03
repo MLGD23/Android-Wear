@@ -1,6 +1,5 @@
 package mx.octaviocervantes.mypetcare.adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,15 +15,8 @@ import java.util.ArrayList;
 
 import mx.octaviocervantes.mypetcare.R;
 import mx.octaviocervantes.mypetcare.datos.MascotaIdInstagram;
-import mx.octaviocervantes.mypetcare.datos.MascotaInstagram;
-import mx.octaviocervantes.mypetcare.datos.Metodos;
 import mx.octaviocervantes.mypetcare.datos.MetodosRestAPI;
-import mx.octaviocervantes.mypetcare.db.ConstructorMascotas;
-import mx.octaviocervantes.mypetcare.fragments.PerfilFragment;
 
-/**
- * Created by Tavo on 24/09/2016.
- */
 public class FotoMascotaAdaptador extends RecyclerView.Adapter<FotoMascotaAdaptador.FotoMascotaViewHolder>{
 
 
