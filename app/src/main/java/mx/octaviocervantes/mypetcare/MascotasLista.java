@@ -64,6 +64,8 @@ public class MascotasLista extends AppCompatActivity {
         }
 
         setUpViewPager(tab);
+
+        //Log.d("TOKEN", FirebaseInstanceId.getInstance().getToken());
     }
 
     private ArrayList<Fragment> agregarFragments(){
@@ -130,6 +132,9 @@ public class MascotasLista extends AppCompatActivity {
     }
 
     private void recibirNotificaciones(String idUsuario, String sUsuario, String idDispositivo){
+        Log.d("ID_EMISOR", idDispositivo);
+        Log.d("ID_USER", idUsuario);
+        Log.d("USER", sUsuario);
 
         RestAPIFirebaseAdapter restAPIFirebaseAdapter = new RestAPIFirebaseAdapter();
         EndpointsAPIFirebase endpointsAPIFirebase = restAPIFirebaseAdapter.establecerConexionRestAPI();

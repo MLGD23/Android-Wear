@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mx.octaviocervantes.mypetcare" >
+    package="mx.octaviocervantes.mypetcare">
 
-    <uses-permission android:name="android.permission.INTERNET" ></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/dog_house_48"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".MascotasLista" >
+        android:theme="@style/AppTheme">
+        <activity android:name=".MascotasLista">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +21,7 @@
         <activity
             android:name=".DetalleMascota"
             android:label="@string/app_detail"
-            android:parentActivityName=".MascotasLista" >
+            android:parentActivityName=".MascotasLista">
 
             <!-- Versiones anteriores a Android 4.0 -->
             <meta-data
@@ -32,7 +31,7 @@
         <activity
             android:name=".PersonaContacto"
             android:label="Contacto"
-            android:parentActivityName=".MascotasLista" >
+            android:parentActivityName=".MascotasLista">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MascotasLista" />
@@ -40,7 +39,7 @@
         <activity
             android:name=".AcercaDesarrollador"
             android:label="Acerca De"
-            android:parentActivityName=".MascotasLista" >
+            android:parentActivityName=".MascotasLista">
 
             <!-- Versiones anteriores a Android 4.0 -->
             <meta-data
@@ -50,7 +49,7 @@
         <activity
             android:name=".LoginUsuario"
             android:label="Configurar Cuenta"
-            android:parentActivityName=".MascotasLista" >
+            android:parentActivityName=".MascotasLista">
 
             <!-- Versiones anteriores a Android 4.0 -->
             <meta-data
@@ -58,19 +57,35 @@
                 android:value=".MascotasLista" />
         </activity>
 
-        <service
-            android:name=".notificaciones.NotificationService">
+        <activity
+            android:name=".UsuarioLike"
+            android:label="Ver Usuario"
+            android:parentActivityName=".MascotasLista">
+
+            <!-- Versiones anteriores a Android 4.0 -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MascotasLista" />
+        </activity>
+
+        <service android:name=".notificaciones.NotificationService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name=".notificaciones.NotificationIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
-        <service
-            android:name=".notificaciones.NotificationIDService">
+        <receiver android:name=".notificaciones.AccionesWear">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="MY_PROFILE" />
+                <action android:name="FOLLOWS" />
+                <action android:name="USER_PROFILE" />
             </intent-filter>
-        </service>
+        </receiver>
 
     </application>
 

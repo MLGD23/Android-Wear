@@ -32,5 +32,8 @@
     <!-- Perfil -->
     <string name="sNombrePerro">Bucky</string>
     <string name="mRecibirNotificaciones">Recibir notificaciones</string>
+    <string name="my_profile_wear">Ver mi perfil</string>
+    <string name="follow_wear">Follow / Unfollow</string>
+    <string name="profile_wear">Ver Usuario</string>
 
 </resources>

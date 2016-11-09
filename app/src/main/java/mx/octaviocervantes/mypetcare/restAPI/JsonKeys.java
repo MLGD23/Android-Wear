@@ -25,4 +25,8 @@ public final class JsonKeys{
 
 	public static final String LIKE_META = "meta";
 	public static final String LIKE_CODE = "code";
+
+	public static final String FOLLOW_OUTGOING_STATUS = "outgoing_status";
+	public static final String FOLLOW_TARGET_USER_PRIVATE = "target_user_is_private";
+	public static final String FOLLOW_INCOMING_STATUS = "incoming_status";
 }

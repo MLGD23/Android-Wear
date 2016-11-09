@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.PerfilFragment">
+
+    <include android:id="@+id/actionBarMascota"
+        layout="@layout/actionbar_mascota"
+        >
+    </include>
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/imgCUsuario"
+        android:layout_width="@dimen/sizeFoto"
+        android:layout_height="@dimen/sizeFoto"
+        android:src="@drawable/golden"
+        app:civ_border_width="@dimen/widthBorder"
+        app:civ_border_color="@color/colorAccent"
+        app:civ_shadow="true"
+        app:civ_shadow_radius="10"
+        app:civ_shadow_color="@color/shadow_color"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/txtNombreUsuarioLike"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sNombrePerro"
+        android:textAlignment="center"
+        android:textSize="@dimen/textNombrePerro"
+        android:textStyle="bold"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tvNoSeguidoresUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tvSeguidoresUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Seguidores"
+            android:layout_marginLeft="5dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tvSeguidosUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Siguiendo a "
+            android:layout_marginLeft="35dp"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tvNoSeguidosUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginLeft="5dp"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/marginLR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/txtNombreUsuarioLike">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvFotosUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            gravity="center_horizontal"
+            android:padding="@dimen/padd_recycler">
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+</LinearLayout>

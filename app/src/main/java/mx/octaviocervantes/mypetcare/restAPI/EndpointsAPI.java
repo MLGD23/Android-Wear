@@ -3,10 +3,12 @@ package mx.octaviocervantes.mypetcare.restAPI;
 import mx.octaviocervantes.mypetcare.restAPI.model.MascotaLikeResponse;
 import mx.octaviocervantes.mypetcare.restAPI.model.MascotaIdResponse;
 import mx.octaviocervantes.mypetcare.restAPI.model.MascotaResponse;
+import mx.octaviocervantes.mypetcare.restAPI.model.UsuarioFollowResponse;
 import mx.octaviocervantes.mypetcare.restAPI.model.UsuarioIdResponse;
 import mx.octaviocervantes.mypetcare.restAPI.model.UsuarioResponse;
 import mx.octaviocervantes.mypetcare.restAPI.model.UsuarioSearchResponse;
 import retrofit2.Call;
+import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -32,6 +34,13 @@ public interface EndpointsAPI{
 
     @POST(ConstantesRestAPI.URL_USER_PHOTO_LIKE)
     Call<MascotaLikeResponse> setLikeUserPhoto(@Path("media-id") String idfoto);
+
+    @GET(ConstantesRestAPI.URL_RELATIONSHIP)
+    Call<UsuarioFollowResponse> getRelationship(@Path("user-id") String idUser);
+
+    @FormUrlEncoded
+    @POST(ConstantesRestAPI.URL_FOLLOW_USER)
+    Call<UsuarioFollowResponse> modifyFollowUser(@Path("user-id") String idUser, @Field("action") String action);
 
 }
 

@@ -7,7 +7,6 @@ import android.widget.Toast;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.Gson;
 
-import mx.octaviocervantes.mypetcare.restAPI.ConstantesRestAPI;
 import mx.octaviocervantes.mypetcare.restAPI.EndpointsAPI;
 import mx.octaviocervantes.mypetcare.restAPI.EndpointsAPIFirebase;
 import mx.octaviocervantes.mypetcare.restAPI.adapter.RestAPIAdapter;

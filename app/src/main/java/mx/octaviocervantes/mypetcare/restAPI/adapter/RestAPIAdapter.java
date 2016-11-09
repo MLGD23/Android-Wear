@@ -8,12 +8,14 @@ import mx.octaviocervantes.mypetcare.restAPI.EndpointsAPI;
 import mx.octaviocervantes.mypetcare.restAPI.deserializer.MascotaIdDeserializador;
 import mx.octaviocervantes.mypetcare.restAPI.deserializer.MascotaLikeDeserializador;
 import mx.octaviocervantes.mypetcare.restAPI.deserializer.UsuarioDeserializador;
+import mx.octaviocervantes.mypetcare.restAPI.deserializer.UsuarioFollowDeserializador;
 import mx.octaviocervantes.mypetcare.restAPI.deserializer.UsuarioIdDeserializador;
 import mx.octaviocervantes.mypetcare.restAPI.deserializer.UsuarioSearchDeserializador;
 import mx.octaviocervantes.mypetcare.restAPI.model.MascotaIdResponse;
 import mx.octaviocervantes.mypetcare.restAPI.model.MascotaLikeResponse;
 import mx.octaviocervantes.mypetcare.restAPI.model.MascotaResponse;
 import mx.octaviocervantes.mypetcare.restAPI.deserializer.MascotaDeserializador;
+import mx.octaviocervantes.mypetcare.restAPI.model.UsuarioFollowResponse;
 import mx.octaviocervantes.mypetcare.restAPI.model.UsuarioIdResponse;
 import mx.octaviocervantes.mypetcare.restAPI.model.UsuarioResponse;
 import mx.octaviocervantes.mypetcare.restAPI.model.UsuarioSearchResponse;
@@ -66,4 +68,11 @@ public class RestAPIAdapter{
 		gsonBuilder.registerTypeAdapter(MascotaLikeResponse.class, new MascotaLikeDeserializador());
 		return gsonBuilder.create();
 	}
+
+	public Gson construyeGsonDeserializadorGetRelationship(){
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		gsonBuilder.registerTypeAdapter(UsuarioFollowResponse.class, new UsuarioFollowDeserializador());
+		return gsonBuilder.create();
+	}
+
 }

@@ -42,6 +42,16 @@ public class Metodos {
         return sUser;
     }
 
+    public String mostrarIdUsuarioLike(){
+        String idUser = shrd.getString("idUsuarioLike", "");
+        return idUser;
+    }
+
+    public String mostrarUsuarioLike(){
+        String sUser = shrd.getString("usuarioLike", "");
+        return sUser;
+    }
+
     public void guardarDatos(String idUsuario, String sUsuario, boolean inicioApp){
         SharedPreferences.Editor edit = shrd.edit();
 
@@ -50,6 +60,17 @@ public class Metodos {
         edit.putString("idUsuario", idUsuario);
         edit.putString("usuario", sUsuario);
         edit.putBoolean("inicio", inicioApp);
+
+        edit.commit();
+    }
+
+    public void guardarDatosUsuarioLike(String idUsuario, String sUsuario){
+        SharedPreferences.Editor edit = shrd.edit();
+
+        edit.clear();
+
+        edit.putString("idUsuarioLike", idUsuario);
+        edit.putString("usuarioLike", sUsuario);
 
         edit.commit();
     }
